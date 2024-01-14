@@ -50,8 +50,8 @@ Here are some ideas to get you started:
 <a href="https://www.mongodb.com/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original-wordmark.svg" alt="mongodb" width="40" height="40"/> </a>  
 </p>
 
-<p><img align="left" src="https://github-readme-stats.vercel.app/api/top-langs?username=satish122&show_icons=true&locale=en&layout=compact" alt="satishkumar" /></p>
+<p><img align="left" src="https://github-readme-stats.vercel.app/api/top-langs?username=satish-KumarGupta&show_icons=true&locale=en&layout=compact" alt="satishkumar" /></p>
 
-<p>&nbsp;<img align="center" src="https://github-readme-stats.vercel.app/api?username=satish122&show_icons=true&locale=en" alt="satishkumar" /></p>
+<p>&nbsp;<img align="center" src="https://github-readme-stats.vercel.app/api?username=satish-KumarGupt&show_icons=true&locale=en" alt="satishkumar" /></p>
 
-<p><img align="center" src="https://github-readme-streak-stats.herokuapp.com/?user=satish122&" alt="satishkumar" /></p>
+<p><img align="center" src="https://github-readme-streak-stats.herokuapp.com/?user=satish-KumarGupt&" alt="satishkumar" /></p>
