@@ -1,0 +1,99 @@
+import MSNavlink from '@msComp/navbar/msnavlink';
+import { NavItems } from '@msComp/navbar/navitem';
+import { NavLinkProps } from '@ms/variable/types/other';
+import { Link, NavLink, useLocation } from 'react-router-dom';
+import MSDialog from '@ms/component/resuable/msdialog';
+import { useState } from 'react';
+const Navbar = () => {
+  const [clickedLabel, setClickedLabel] = useState(localStorage.getItem('label') || '');
+  const [status, setStatus] = useState(false);
+  const handleItemClick = (label: string) => {
+    localStorage.setItem('label', label);
+    setClickedLabel(label);
+    setStatus(true);
+  };
+  const currentPath = useLocation().pathname;
+  console.log(status);
+
+  const [aboutStatus, setAboutStatus] = useState(false);
+  const handleAboutClick = () => {
+    setAboutStatus(true);
+  };
+  const handleAboutClose = () => {
+    setAboutStatus(false);
+  };
+  return (
+    <div>
+      <div className="pl-10 pt-2 pb-2">
+        <figure>
+          <img src="/asserts/img/mso-gap.png" alt="" className="w-40" />
+        </figure>
+      </div>
+      <div className="bg-site-color flex justify-center gap-x-1">
+        {NavItems.map((item: NavLinkProps, index) => (
+          <>
+            <div
+              onClick={() => handleItemClick(item.label)}
+              className={`${currentPath === item.path && clickedLabel === item.label ? 'border-b-4 p-3 bg-black bg-opacity-50' : clickedLabel === item.label && currentPath !== item.path ? 'border-b-4 p-3 bg-black bg-opacity-50' : 'p-3 '}`}
+            >
+              <Link to={item.path} className="text-lg text-white h-full">
+                {item.label}
+              </Link>
+            </div>
+          </>
+        ))}
+      </div>
+      {clickedLabel === 'Service Request' && status && (
+        <>
+          <div
+            className="p-10 mr-[100px] flex flex-col items-center gap-2 text-site-color font-semibold text-lg"
+            onClick={e => setStatus(false)}
+          >
+            <Link to={'/Service/advance-analytics-enviroment'}>
+              <div className=" border-b border-site-color">
+                <p>Request Advance Analytics Environment</p>
+              </div>
+            </Link>
+            <Link to={'/Service/data-upload'}>
+              <div className="border-b border-site-color">
+                <p>Requet Data Upload</p>
+              </div>
+            </Link>
+          </div>
+        </>
+      )}
+      {clickedLabel === 'Help' && status && (
+        <>
+          <div className="p-10 ml-[120px] flex flex-col items-center gap-2 text-site-color font-semibold text-lg">
+            <div className=" border-b border-site-color cursor-pointer" onClick={handleAboutClick}>
+              <p>About ZAP</p>
+            </div>
+
+            <div className=" border-b border-site-color cursor-pointer" onClick={handleAboutClick}>
+              <p>Report a ZAP issue</p>
+            </div>
+
+            <Link to={'/Help/FAQs'}>
+              <div className="border-b border-site-color" onClick={e => setStatus(false)}>
+                <p>FAQs</p>
+              </div>
+            </Link>
+          </div>
+
+          <MSDialog open={aboutStatus} onClose={handleAboutClose}>
+            <div className="pl-5 pr-5 mt-2">
+              <p className="text-site-color text-lg">You are being redirected</p>
+              <p className="mt-4 mb-6 font-medium">
+                ESO IT Portal will open in a new tab to report an issuse related to ZAP.
+                <br />
+                Do you want to proceed?
+              </p>
+            </div>
+          </MSDialog>
+        </>
+      )}
+    </div>
+  );
+};
+
+export default Navbar;
