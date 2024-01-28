@@ -1,0 +1,51 @@
+import MSCard from '@ms/component/resuable/mscard';
+import usePageTitle from '@ms/utils/hooks/usePageTitle';
+import MSLayoutWrapper from '@ms/wrapper/mslayoutwrapper';
+import { Link } from 'react-router-dom';
+const Service = () => {
+  usePageTitle('Service');
+  return (
+    <>
+      {/* <div className="p-10 mr-[100px] flex flex-col items-center gap-2 text-site-color font-semibold text-lg">
+        <Link to={'/Service/advance-analytics-enviroment'}>
+          <div className=" border-b border-site-color">
+            <p>Request Advance Analytics Environment</p>
+          </div>
+        </Link>
+        <Link to={'/Service/data-upload'}>
+          <div className="border-b border-site-color">
+            <p>Requet Data Upload</p>
+          </div>
+        </Link>
+      </div> */}
+      <MSLayoutWrapper coverImage={'/asserts/img/base.jpg'} layoutTitle="">
+        <div className="flex flex-col justify-items-center gap-[2rem] items-center w-full ">
+          <h4 className="text-4xl font-medium text-center">Accelerate your Data & Analytics Process</h4>
+          <div className="mt-2 flex gap-6 flex-col">
+            <MSCard
+              cardImg="/asserts/img/analytics.png"
+              cardContent={
+                <>
+                  <p className="text-site-color">Request Advanced Analytics Enviroment</p>
+                  <p>For requesting AAE that enables you to embed AI.</p>
+                </>
+              }
+            />
+            <div className=" border-t-2" />
+            <MSCard
+              cardImg="/asserts/img/analytics.png"
+              cardContent={
+                <>
+                  <p className="text-site-color">Request for Data Upload</p>
+                  <p>For requesting data upload into ZAP on an adhoc basis.</p>
+                </>
+              }
+            />
+          </div>
+        </div>
+      </MSLayoutWrapper>
+    </>
+  );
+};
+
+export default Service;
